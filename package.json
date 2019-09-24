@@ -11,10 +11,10 @@
   "author": "Constantin Ross",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.26.5",
+    "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
-    "gulp-changed": "^3.2.0",
-    "gulp-imagemin": "^5.0.3",
+    "gulp-changed": "^4.0.1",
+    "gulp-imagemin": "^6.1.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
