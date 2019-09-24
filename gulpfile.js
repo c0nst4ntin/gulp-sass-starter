@@ -17,6 +17,8 @@ const distPath                              = './dist/'
 
 let {src, dest, watch, series }             = require('gulp')
 let browserSync                             = require('browser-sync')
+let changed                                 = require('gulp-changed')
+let imagemin                                = require('gulp-imagemin')
 let rename                                  = require('gulp-rename')
 let sass                                    = require('gulp-sass')
 let sourcemaps                              = require('gulp-sourcemaps')
@@ -62,6 +64,13 @@ function buildStaticJS () {
     .pipe(dest(distPath + 'js/'))
 }
 
+function buildStaticImages () {
+    return src(staticPath + 'images/**/*')
+    .pipe(changed(distPath + 'images/'))
+    .pipe(imagemin({verbose: true}))
+    .pipe(dest(distPath + 'images/'))
+}
+
 /**
  * ----------------------------------------------------------------------
  *  Define exports/tasks
@@ -79,15 +88,17 @@ exports.default = () => {
     watch(srcPath + 'html/**/*.html', buildHTML)
     watch(staticPath + 'js/**/*', buildStaticJS)
     watch(staticPath + 'css/**/*', buildStaticCss)
+    watch(staticPath + 'images/**/*', buildStaticImages)
     watch([srcPath + 'html/**/*.html', srcPath + 'js/**/*.js', srcPath + 'scss/**/*.scss']).on('change', browserSync.reload)
 }
 
 exports.build = series([
     buildJS,
     buildScss,
+    buildHTML,
     buildStaticJS,
     buildStaticCss,
-    buildHTML
+    buildStaticImages
 ])
 
 exports.buildSrc = series([
@@ -98,5 +109,6 @@ exports.buildSrc = series([
 
 exports.buildStatic = series([
     buildStaticJS,
-    buildStaticCss
+    buildStaticCss,
+    buildStaticImages
 ])

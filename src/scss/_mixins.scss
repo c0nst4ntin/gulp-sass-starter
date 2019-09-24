@@ -1,0 +1,54 @@
+// Small devices (landscape phones, 576px and up)
+@mixin xs-up {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@mixin sm-up {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@mixin md-up {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@mixin lg-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+// TRANSLATE ELEMENT
+@mixin transform-translate($horizontal, $vertical) {
+  -webkit-transform: translate($horizontal, $vertical);
+  -o-transform: translate($horizontal, $vertical);
+  -moz-transform: translate($horizontal, $vertical);
+  -ms-transform: translate($horizontal, $vertical);
+  transform: translate($horizontal, $vertical);
+}
+
+// ROTATE ELEMENT
+@mixin transform-rotate($angle) {
+  -webkit-transform: rotate($angle);
+  -o-transform: rotate($angle);
+  -moz-transform: rotate($angle);
+  -ms-transform: rotate($angle);
+  transform: rotate($angle);
+}
+
+// SCALE ELEMENT
+@mixin transform-scale($horizontal, $vertical) {
+  -webkit-transform: scale($horizontal, $vertical);
+  -o-transform: scale($horizontal, $vertical);
+  -moz-transform: scale($horizontal, $vertical);
+  -ms-transform: scale($horizontal, $vertical);
+  transform: scale($horizontal, $vertical);
+}
