@@ -48,7 +48,11 @@ Navigate to the project folder:
 Install all the packages and dependencies required for this project:
 
     npm install
-    
+
+Build the Project before starting the development server:
+
+    npm build
+
 Start the development server (then, navigate to [localhost:3000](http://localhost:3000/)):
 
     npm dev
