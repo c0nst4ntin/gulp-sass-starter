@@ -1,6 +1,6 @@
 {
   "name": "boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple frontend boilerplate using Gulp",
   "scripts": {
     "dev": "gulp",
