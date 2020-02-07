@@ -1,23 +1,18 @@
 {
   "name": "boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple frontend boilerplate using Gulp",
   "scripts": {
     "dev": "gulp",
-    "build": "gulp build",
-    "build-src": "gulp buildSrc",
-    "build-static": "gulp buildStatic"
+    "build": "gulp build"
   },
   "author": "Constantin Ross",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
-    "gulp-changed": "^4.0.2",
-    "gulp-imagemin": "^6.1.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2"
   }
 }

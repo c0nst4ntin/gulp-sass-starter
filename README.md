@@ -7,8 +7,6 @@
   <a href="https://github.com/c0nst4ntin/gulp-sass-starter/">
     <img src="https://img.shields.io/github/package-json/v/c0nst4ntin/gulp-sass-starter?color=success">
   </a>
-  <a href="https://jquery.com">
-    <img src="https://img.shields.io/badge/jquery-v3.4.1-success.svg">
   <a href="https://gulpjs.com/">
     <img src="https://img.shields.io/github/package-json/dependency-version/c0nst4ntin/gulp-sass-starter/dev/gulp?color=success">
   </a> 
@@ -23,7 +21,6 @@
   · Babel
   · Gulp
   · Browser-Sync Dev Server
-  · jQuery 3.4.1
   </em>
 </p>
 

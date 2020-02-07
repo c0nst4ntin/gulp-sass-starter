@@ -4,9 +4,9 @@
  * ----------------------------------------------------------------------
  */
 
-const srcPath                               = './src/'
-const staticPath                            = './static/'
-const distPath                              = './dist/'
+const srcPath = './src/'
+const staticPath = './static/'
+const distPath = './dist/'
 
 
 /**
@@ -15,14 +15,11 @@ const distPath                              = './dist/'
  * ----------------------------------------------------------------------
  */
 
-let {src, dest, watch, series }             = require('gulp')
-let browserSync                             = require('browser-sync')
-let changed                                 = require('gulp-changed')
-let imagemin                                = require('gulp-imagemin')
-let rename                                  = require('gulp-rename')
-let sass                                    = require('gulp-sass')
-let sourcemaps                              = require('gulp-sourcemaps')
-let uglify                                  = require('gulp-uglify')
+let { src, dest, watch, series } = require('gulp')
+let browserSync = require('browser-sync')
+let rename = require('gulp-rename')
+let sass = require('gulp-sass')
+let uglify = require('gulp-uglify')
 
 
 /**
@@ -33,44 +30,27 @@ let uglify                                  = require('gulp-uglify')
 
 function buildScss () {
     return src(srcPath + 'scss/**/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(sourcemaps.write('./'))
-    .pipe(dest(distPath + 'css/'))
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(dest(distPath + 'css/'))
 }
 
 function buildJS () {
     return src(srcPath + 'js/**/*.js')
-    .pipe(sourcemaps.init())
-    .pipe(uglify())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(sourcemaps.write('./'))
-    .pipe(dest(distPath + 'js/'))
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(dest(distPath + 'js/'))
 }
 
 function buildHTML () {
     return src(srcPath + 'html/**/*.html')
-    .pipe(dest(distPath))
+        .pipe(dest(distPath))
 }
 
-function buildStaticCss () {
-    return src(staticPath + 'css/**/*')
-    .pipe(dest(distPath + 'css/'))
+function buildStatic () {
+    return src(staticPath + '**/*')
+        .pipe(dest(distPath))
 }
-
-function buildStaticJS () {
-    return src(staticPath + 'js/**/*')
-    .pipe(dest(distPath + 'js/'))
-}
-
-function buildStaticImages () {
-    return src(staticPath + 'images/**/*')
-    .pipe(changed(distPath + 'images/'))
-    .pipe(imagemin({verbose: true}))
-    .pipe(dest(distPath + 'images/'))
-}
-
 /**
  * ----------------------------------------------------------------------
  *  Define exports/tasks
@@ -86,9 +66,7 @@ exports.default = () => {
     watch(srcPath + 'js/**/*.js', buildJS)
     watch(srcPath + 'scss/**/*.scss', buildScss)
     watch(srcPath + 'html/**/*.html', buildHTML)
-    watch(staticPath + 'js/**/*', buildStaticJS)
-    watch(staticPath + 'css/**/*', buildStaticCss)
-    watch(staticPath + 'images/**/*', buildStaticImages)
+    watch(staticPath + '**/*', buildStatic)
     watch([srcPath + 'html/**/*.html', srcPath + 'js/**/*.js', srcPath + 'scss/**/*.scss']).on('change', browserSync.reload)
 }
 
@@ -96,19 +74,5 @@ exports.build = series([
     buildJS,
     buildScss,
     buildHTML,
-    buildStaticJS,
-    buildStaticCss,
-    buildStaticImages
-])
-
-exports.buildSrc = series([
-    buildJS,
-    buildScss,
-    buildHTML
-])
-
-exports.buildStatic = series([
-    buildStaticJS,
-    buildStaticCss,
-    buildStaticImages
+    buildStatic
 ])
