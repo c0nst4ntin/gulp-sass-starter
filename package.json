@@ -1,6 +1,6 @@
 {
   "name": "boilerplate",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Simple frontend boilerplate using Gulp",
   "scripts": {
     "dev": "gulp",
@@ -9,10 +9,10 @@
   "author": "Constantin Ross",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.12",
     "gulp": "^4.0.2",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2"
   }
 }
