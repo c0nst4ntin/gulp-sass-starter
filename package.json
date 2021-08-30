@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Simple frontend boilerplate using Gulp",
   "scripts": {
-    "dev": "gulp",
+    "dev": "gulp build && gulp",
     "build": "gulp build"
   },
   "author": "Constantin Ross",
