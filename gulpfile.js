@@ -18,7 +18,7 @@ const distPath = './dist/'
 let { src, dest, watch, series } = require('gulp')
 let browserSync = require('browser-sync')
 let rename = require('gulp-rename')
-let sass = require('gulp-sass')
+let sass = require('gulp-sass')(require('node-sass'))
 let uglify = require('gulp-uglify')
 
 
