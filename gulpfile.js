@@ -8,7 +8,6 @@ const srcPath = './src/'
 const staticPath = './static/'
 const distPath = './dist/'
 
-
 /**
  * ----------------------------------------------------------------------
  *  Require and Initialize all Modules
@@ -21,36 +20,36 @@ let rename = require('gulp-rename')
 let sass = require('gulp-sass')(require('node-sass'))
 let uglify = require('gulp-uglify')
 
-
 /**
  * ----------------------------------------------------------------------
  *  Tasks
  * ----------------------------------------------------------------------
  */
 
-function buildScss () {
+function buildScss() {
     return src(srcPath + 'scss/**/*.scss')
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(rename({ suffix: '.min' }))
         .pipe(dest(distPath + 'css/'))
 }
 
-function buildJS () {
+function buildJS() {
     return src(srcPath + 'js/**/*.js')
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .pipe(dest(distPath + 'js/'))
 }
 
-function buildHTML () {
+function buildHTML() {
     return src(srcPath + 'html/**/*.html')
         .pipe(dest(distPath))
 }
 
-function buildStatic () {
+function buildStatic() {
     return src(staticPath + '**/*')
         .pipe(dest(distPath))
 }
+
 /**
  * ----------------------------------------------------------------------
  *  Define exports/tasks

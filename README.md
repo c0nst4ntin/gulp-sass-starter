@@ -27,17 +27,18 @@
 This Gulp Sass starter contains the features and scripts you need
 to start developing websites using Sass.
 
-
 ## Getting Started
 
 ### Requirements
-* Please make sure you have NodeJS installed, which is necessary for this starter template.
+
+- Please make sure you have NodeJS installed, which is necessary for this starter template.
 
 ### Quick Start
+
 Clone the repo:
 
     git clone https://github.com/c0nst4ntin/gulp-sass-starter.git
-    
+
 Navigate to the project folder:
 
     cd gulp-sass-starter
@@ -53,16 +54,17 @@ Build the Project before starting the development server:
 Start the development server (then, navigate to [localhost:3000](http://localhost:3000/)):
 
     npm dev
- 
+
 Then, open a browser and navigate to: [localhost:3000](http://localhost:3000/)
-    
+
 Building files can be done as follows:
 
     npm run build
 
 ### How To Use
-  The `/src/` folder contains all Source Files including sass, js and html. Gulp minifies and compiles the code into the dist folder from here.
-  
-  The `/dist/` folder contains all compiled files ready for deployment. The files in this folder get served at [localhost:3000](http://localhost:3000/) by BrowserSync.
-  
-   The `/static/` folder contains all your static or already minified files such as images or js and css libraries.
+
+The `/src/` folder contains all Source Files including sass, js and html. Gulp minifies and compiles the code into the dist folder from here.
+
+The `/dist/` folder contains all compiled files ready for deployment. The files in this folder get served at [localhost:3000](http://localhost:3000/) by BrowserSync.
+
+The `/static/` folder contains all your static or already minified files such as images or js and css libraries.
